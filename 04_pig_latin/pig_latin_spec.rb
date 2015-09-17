@@ -36,7 +36,7 @@ describe "#translate" do
     s.should == "errychay"
   end
 
-  xit "translates two words" do
+  it "translates two words" do
     s = translate("eat pie")
     s.should == "eatay iepay"
   end
@@ -65,6 +65,15 @@ describe "#translate" do
     s.should == "ethay ickquay ownbray oxfay"
   end
 
+  it "maintains capitalized words" do
+    s = translate("He lives in Seoul")
+    s.should == "Ehay iveslay inay Eoulsay"
+  end
+
+  it "retains punctuation" do
+    s = translate("Does he live in Seoul?")
+    s.should == "Oesday ehay ivelay inay Eoulsay?"
+  end
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
